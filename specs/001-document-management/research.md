@@ -28,7 +28,8 @@ error handling deterministic and keeps the UI independent of the scanner process
 **Decision**: Read `IBrowserFile` with an explicit maximum size and stream it directly to a uniquely
 named staging file. Process the selected files sequentially, show per-file progress and outcome, and
 never buffer complete files in a `MemoryStream`. Validate the file size on the server, allow-list
-extensions and file signatures, and treat client name and MIME type as untrusted metadata. Use a
+PDF, DOCX, XLSX, PPTX, plain-text, JPEG, and PNG formats by extension and file signature, and treat
+client name and MIME type as untrusted metadata. Reject legacy DOC, XLS, and PPT formats. Use a
 bounded multiple-file selection (initial default: 10 files per batch) to limit resource consumption.
 
 **Rationale**: Microsoft Learn recommends streaming server-side uploads to a `FileStream`, passing an

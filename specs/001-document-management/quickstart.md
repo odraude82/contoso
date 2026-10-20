@@ -34,23 +34,26 @@ Open `http://localhost:5080` and sign in using one of the seeded training users.
 
 1. **Accepted upload**: Sign in as an Employee; upload a supported PDF within the 25 MB limit with a
    title and category; verify progress, success, captured metadata, and visibility in My Documents.
-2. **Validation failures**: Try a file over the limit, a disallowed extension, a mismatched file
-   signature, and a harmless antivirus test signature. Verify each file is rejected and cannot be
-   previewed, downloaded, searched, or associated with a task.
+2. **Validation failures**: Verify PDF, DOCX, XLSX, PPTX, plain-text, JPEG, and PNG files are accepted
+   when their signatures match. Try a file over the limit, legacy DOC/XLS/PPT files, another
+   disallowed extension, a mismatched file signature, and a harmless antivirus test signature.
+   Verify each rejected file cannot be previewed, downloaded, searched, or associated with a task.
 3. **Scanner fail-closed**: Stop or misconfigure the local scanner; upload a supported file; verify the
    UI reports failure and no accepted metadata or public file is created.
 4. **Authorization matrix**: Verify owner, project member, same-department Team Lead, Project Manager,
-   Administrator, active share recipient, and unrelated user access. Confirm Team Leads have only
-   read/download access to team members' documents unless another role independently authorizes an
-   action.
+   Administrator, active user-share recipient, current department-share recipient, and unrelated user
+   access. Change a recipient's department and verify department-share access is removed. Confirm
+   Team Leads have only read/download access to team members' documents unless another role
+   independently authorizes an action.
 5. **Search and organization**: Create at least 500 test documents; verify sorting, filtering, tags,
    and authorized search results meet their two-second target.
 6. **Project/task/dashboard integration**: Upload from a task and verify project association; verify
    project document access, recent five personal documents, count, and project notifications.
 7. **Delete and audit**: Confirm deletion removes the file and document from lists/search while the
-   audit event remains available to Administrators.
-8. **Preview and download**: Verify PDF/JPEG/PNG render inline; other formats download as attachments;
-   unauthorized requests return no content and reveal no storage path.
+   audit event remains available to Administrators. Verify preview and download are recorded as
+   separate activity actions.
+8. **Preview and download**: Verify PDF/JPEG/PNG render inline; DOCX/XLSX/PPTX/plain-text files
+   download as attachments; unauthorized requests return no content and reveal no storage path.
 
 ## SQLite Upgrade Validation
 

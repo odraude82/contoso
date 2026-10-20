@@ -7,10 +7,11 @@
 ## Summary
 
 Add an authenticated document workflow to the existing Blazor Server application: local uploads,
-metadata, search, project/task integration, controlled sharing, preview/download, and audit reports.
-Use EF Core migrations for SQLite metadata and a local filesystem storage service for document
-content. Uploads are streamed to a staging directory outside `wwwroot`, scanned by a local ClamAV
-daemon, and published only after a clean verdict. Authorization remains in the service boundary.
+metadata, search, project/task integration, user/department sharing, preview/download, distinct
+preview/download audit events, and audit reports. Use EF Core migrations for SQLite metadata and a
+local filesystem storage service for document content. Uploads are streamed to a staging directory
+outside `wwwroot`, scanned by a local ClamAV daemon, and published only after a clean verdict.
+Authorization remains in the service boundary.
 
 ## Technical Context
 
@@ -35,8 +36,9 @@ content endpoint
 seconds; search within 2 seconds; preview supported PDFs and images within 3 seconds
 
 **Constraints**: Preserve mock cookie authentication and role checks; enforce a server-side 25 MB
-per-file limit; use generated storage names and validated file types; keep files outside public
-static content; malware scanning must fail closed; no cloud storage or scanner dependency
+per-file limit; use generated storage names and allow-list PDF, DOCX, XLSX, PPTX, plain text, JPEG,
+and PNG while rejecting legacy DOC/XLS/PPT; keep files outside public static content; malware
+scanning must fail closed; no cloud storage or scanner dependency
 
 **Scale/Scope**: Six user journeys; up to 500 documents for list performance; multi-file uploads,
 project/task links, user/department sharing, notifications, and administrative activity reports

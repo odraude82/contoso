@@ -1,0 +1,18 @@
+# .NET build and IDE output
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+
+# Temporary files
+*.tmp
+*.swp
+Thumbs.db
+.DS_Store
+.idea/

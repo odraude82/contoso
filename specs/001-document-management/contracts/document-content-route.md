@@ -11,6 +11,8 @@ This route is consumed by the ContosoDashboard browser UI. It is not a public in
 - `download`: optional boolean; defaults to `false` (preview intent).
 - The route delegates access checks to `IDocumentService`; it does not accept filesystem paths or
   user-supplied filenames.
+- Each successfully authorized content response records an activity event: `Preview` when
+  `download=false` and `Download` when `download=true`. These actions remain distinct in reports.
 
 ## Authorization
 

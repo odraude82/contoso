@@ -16,7 +16,7 @@ Represents an accepted, malware-clean document.
 | Category | Required text; one of Project Documents, Team Resources, Personal Files, Reports, Presentations, Other |
 | OriginalFileName | Required display-only value; never used to form a path |
 | RelativeStoragePath | Required generated path relative to the configured private storage root |
-| ContentType | Required validated media type; maximum 255 characters |
+| ContentType | Required validated media type for PDF, DOCX, XLSX, PPTX, plain text, JPEG, or PNG; maximum 255 characters; legacy DOC, XLS, and PPT are rejected |
 | FileSizeBytes | Required positive size; at most the configured 25 MB limit |
 | UploadedByUserId | Required FK to User; the uploader and owner |
 | UploadedAtUtc | Required UTC timestamp |
